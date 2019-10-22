@@ -1,6 +1,7 @@
 package org.cochrane.exercise.main;
 
 
+import org.cochrane.exercise.problems.CochraneParser;
 import org.cochrane.exercise.problems.PrimeFactorization;
 
 import java.nio.file.Files;
@@ -31,13 +32,12 @@ public class ExerciseMain {
         String[] primeStrings = primeFile.split(" ");
         for (String s : primeStrings) {
             primes.add(Integer.parseInt(s));
-            System.out.println(s);
         }
 
         String input = "";
         while (!input.equals("exit")) {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter your nationality: ");
+            System.out.print("Enter number: ");
             input = scanner.nextLine();
             Integer number = Integer.parseInt(input);
             Map<Integer,Integer> result = PrimeFactorization.factorizeLoop(number, primes);
@@ -47,9 +47,17 @@ public class ExerciseMain {
             for(int i=keys.size()-1; i>=0;i--){
                 System.out.print(keys.get(i) + "^" + result.get(keys.get(i))  + " ");
             }
+
+            System.out.println();
+
+            System.out.print("Enter string: ");
+            input = scanner.nextLine();
+            boolean res = CochraneParser.parser(input);
 //            result.entrySet().stream()
 //                    .forEach( (entry)-> System.out.print(entry.getKey() + "^" + entry.getValue() + " "));
-//            System.out.println();
+            System.out.println(input + "->" + res);
+
+
         }
 
 

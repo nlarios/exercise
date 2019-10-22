@@ -27,7 +27,4 @@ public class PrimeFactorization {
         return result;
     }
 
-    public static List<Integer> factorizeRecursion(int number, List<Integer> primes){
-        return null;
-    }
 }
